@@ -16,3 +16,29 @@ img {
   display: block;
   max-width: 100%;
 }
+
+#datetime-picker {
+  font-size: 25px;
+}
+
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+  font-size: 35px;
+
+  color: #fff;
+
+  text-shadow: 3px 3px 20px royalblue, -2px 1px 30px royalblue;
+}
+
+.field {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.value {
+  font-size: 75px;
+}
