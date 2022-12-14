@@ -16,6 +16,7 @@ refs.startButton.disabled = true;
 class Timer {
   constructor() {
     this.isActive = false;
+    this.intervalId = null;
   }
 
   start(unixTime) {
@@ -23,11 +24,22 @@ class Timer {
       return;
     }
 
-    setInterval(() => {
-      updateTimerMarkup(convertMs(unixTime - Date.now()));
+    this.intervalId = setInterval(() => {
+      const currentTimeMargin = unixTime - Date.now();
+
+      if (currentTimeMargin < 1000) {
+        clearInterval(this.intervalId);
+        this.isActive = false;
+        refs.startButton.disabled = false;
+        refs.inputElement.disabled = false;
+      }
+
+      updateTimerMarkup(convertMs(currentTimeMargin));
     }, 1000);
 
     this.isActive = true;
+    refs.startButton.disabled = true;
+    refs.inputElement.disabled = true;
   }
 }
 

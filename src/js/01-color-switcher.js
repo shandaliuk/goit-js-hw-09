@@ -3,7 +3,7 @@ const refs = {
   stopButton: document.querySelector('button[data-stop]'),
 };
 
-class Timer {
+class ColorSwitcher {
   constructor() {
     this.interval_time = 1000;
     this.intervalId = null;
@@ -29,7 +29,7 @@ class Timer {
   }
 }
 
-const timer = new Timer();
+const timer = new ColorSwitcher();
 
 const onStartButtonClick = () => {
   timer.start();
